@@ -1,16 +1,39 @@
-### Features
 
-#####How to **get started**
+####How to **get started**:
 
-1. Clone the this **repo**: `$ git clone `
+1. Clone the this **repo**: `$ git clone https://github.com/proxify-ab/assignments/tree/master/vue `
 2. Run `$ yarn install`
 3. Than start serving with: `$ yarn serve`
 4. Everything you need is in the **src** directory
 
-#####How to show us your results:
+####How to show us your results:
 1. Push your results to your private repo
 2. Give access to email@email.com
 
-#####What you should show us:
-1. Clean code
-2. Good refactoring skills. 
+####What you should show us:
+1. Clean and readable code
+2. Good refactoring skills
+3. Reusable code fragments
+
+####The main task in this assignment:
+Your task is it to fix the broken chatbot and write as much features as you can.
+
+####🤖Instructions:
+1. You should fix the broken iteration process:
+	- Display the **chatbot messages** 
+	- Allow to answer the questions asked by the **chatbot**, for example:
+		- What's your name?
+		- How was your day?
+		- Where're you from?
+		- How old are you?
+		- What's your favorite hobby?
+2. Show each of your message in a blue bubble **`class="me"`** and the chatbot messages in a gray bubble **`class="him"`**.
+3. At the start of a new chat (**example: reloading the site**), the** button message** should write: *Let's chat*, after that the text changes to: Send Message.
+4. After the chat ends, you should disable the button.
+5. Try to refactor and clean up the code as much as possible.
+
+####🔥Bonus:
+1. Load the messages via **Axios** from a json file
+2. Use **Composite API**
+3. Be creative and add nice features
+4. Add vue-typed-js for type animations
