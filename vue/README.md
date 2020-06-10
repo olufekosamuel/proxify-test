@@ -15,7 +15,7 @@
 2. Good refactoring skills
 3. Reusable code fragments
 
-####The main task in this assignment:
+#### The main task in this assignment:
 Your task is it to fix the broken chatbot and write as much features as you can.
 
 #### 🤖Instructions:
