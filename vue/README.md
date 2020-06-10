@@ -1,24 +1,16 @@
-# vue
+### Features
 
-## Project setup
-```
-yarn install
-```
+#####How to **get started**
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+1. Clone the this **repo**: `$ git clone `
+2. Run `$ yarn install`
+3. Than start serving with: `$ yarn serve`
+4. Everything you need is in the **src** directory
 
-### Compiles and minifies for production
-```
-yarn build
-```
+#####How to show us your results:
+1. Push your results to your private repo
+2. Give access to email@email.com
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+#####What you should show us:
+1. Clean code
+2. Good refactoring skills. 
