@@ -8,7 +8,7 @@
 
 #### How to show us your results:
 1. Push your results to your private repo
-2. Give access to email@email.com
+2. Give access to maurice@proxify.io
 
 #### What you should show us:
 1. Clean and readable code
