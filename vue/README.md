@@ -28,7 +28,7 @@ Your task is to fix the broken chatbot and write as many features properly as yo
 		- How old are you?
 		- What's your favorite hobby?
 2. Show each of your message in a blue bubble **`class="me"`** and the chatbot messages in a gray bubble **`class="him"`**.
-3. At the start of a new chat (example: reloading the site), the button message should write: *Let's chat*, after that the text changes to: Send Message.
+3. At the start of a new chat (example: reloading the site), the button message should write: Let's chat, after that the text changes to: Send Message.
 4. After the chat ends, you should disable the button.
 5. Try to refactor and clean up the code as much as possible.
 
