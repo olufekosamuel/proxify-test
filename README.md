@@ -7,7 +7,7 @@
 4. Everything you need is in the **src** directory
 
 #### How to show us your results:
-1. Push your results to your private repo
+1. Push your results to your public repo
 2. Give access to maurice@proxify.io
 
 #### What you should show us:
