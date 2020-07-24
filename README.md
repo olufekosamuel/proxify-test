@@ -37,3 +37,4 @@ Your task is to fix the broken chatbot and write as many features properly as yo
 2. Use **Vue Composition API**
 3. Be creative and add nice features
 4. Add vue-typed-js for type animations
+5. Scroll always to the last message
