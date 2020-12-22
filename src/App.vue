@@ -30,7 +30,9 @@
           </v-col>
           <v-col cols="12" md="12">
             <div class="my-2">
-              <v-btn @click="send" x-large :style="{position: 'absolute', bottom: 0, right: 0, background: '#56c8d8'}" color="primary" dark>Send Message</v-btn>
+              <v-btn v-if="newChat" @click="send" x-large :style="{position: 'absolute', bottom: 0, right: 0, background: '#56c8d8'}" color="primary" dark>Let's chat</v-btn>
+              <v-btn v-else-if="!endChat" @click="send" x-large :style="{position: 'absolute', bottom: 0, right: 0, background: '#56c8d8'}" color="primary" dark>Send Message</v-btn>
+              <v-btn v-else x-large :style="{position: 'absolute', bottom: 0, right: 0, background: '#56c8d8'}" disabled color="primary" dark>Send Message</v-btn>
             </div>
           </v-col>
         </v-row>
@@ -40,6 +42,8 @@
 </template>
 
 <script>
+
+import axios from 'axios';
 
 export default {
   name: 'App',
@@ -57,69 +61,60 @@ export default {
     next: 0,
     input: '',
     toChat: [],
-    messages: [
-      {
-        text: "Hi, I'm Peter!",
-        owner: 'him'
-      },
-      {
-        text: "What's your name?",
-        ask: "name",
-        owner: 'him'
-      },
-      {
-        text: "Nice to meet you!",
-        owner: 'him'
-      },
-      {
-        text: "How was your day?",
-        ask: "feeling",
-        owner: 'him'
-      },
-      {
-        text: "Where're you from?",
-        ask: "location",
-        owner: 'him'
-      },
-      {
-        text: "Nice!",
-        owner: 'him'
-      },
-      {
-        text: "How old are you?",
-        ask: "age",
-        owner: 'him'
-      },
-      {
-        text: "What's your favorite hobby?",
-        ask: "hobby",
-        owner: 'him'
-      },
-      {
-        text: "Wow, cool",
-      }
-    ]
+    newChat: true,
+    endChat: false,
+    messages: [],
   }),
+  created(){
+      this.getMessage();
+  },
+  mounted() {
+    this.getMessage();
+  },
   methods: {
-    send() {
-      let active = true
-      while(active) {
-
-        if (typeof this.messages[this.next].ask === 'undefined') {
-          this.next += 1;
-        } else {
-          this.next += 1;
-          if (this.messages[this.next].ask === 'name') {
-            this.name = this.input
+    getMessage(){//function handles getting messages with axios
+      axios.get("messages.json").then(response => {
+      this.messages = response.data;
+    })
+    },
+    myMessage(){//function handles update all message with users message
+      if(this.input.length > 0){
+            this.name = this.input;
             this.messages.splice(this.next, 0,{
               text: this.input,
               owner: 'me'
             })
+            this.input = "";
+        }
+    },
+    send() {//function handles sending all messages
+    
+      if(this.newChat){//catch my first message to the bot
+        this.newChat = false;
+        this.myMessage();
+      }
+
+      let active = true;
+      
+      while(active) {
+        this.scrollToBottom();
+        this.myMessage();
+
+        if (typeof this.messages[this.next].ask === 'undefined') {
+          if(this.messages[this.next] == this.messages[this.messages.length -1]){//check if this is the last bot message then disable send message button
+            this.endChat = true;
           }
+        } else {
           active = false;
         }
+        this.next += 1;
       }
-    }
+      
+    },
+    scrollToBottom(){ //function handles scroll to bottom feature  	
+      var container = this.$el.querySelector("ul");
+      container.scrollTop = container.scrollHeight;
+    },
   }
 };
 </script>
@@ -150,6 +145,11 @@ export default {
   .him{
     background: #eee;
     float: left;
+  }
+
+  .me{
+    background: #0084ff;
+    float: right;
   }
 
   .me{

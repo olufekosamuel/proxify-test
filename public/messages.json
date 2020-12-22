@@ -1,0 +1,42 @@
+[{
+    "text": "Hi, I'm Peter!",
+    "owner": "him"
+  },
+  {
+    "text": "What's your name?",
+    "ask": "name",
+    "owner": "him"
+  },
+  {
+    "text": "Nice to meet you!",
+    "owner": "him"
+  },
+  {
+    "text": "How was your day?",
+    "ask": "feeling",
+    "owner": "him"
+  },
+  {
+    "text": "Where're you from?",
+    "ask": "location",
+    "owner": "him"
+  },
+  {
+    "text": "Nice!",
+    "owner": "him"
+  },
+  {
+    "text": "How old are you?",
+    "ask": "age",
+    "owner": "him"
+  },
+  {
+    "text": "What's your favorite hobby?",
+    "ask": "hobby",
+    "owner": "him"
+  },
+  {
+    "text": "Wow, cool",
+    "owner": "him"
+  }
+]
