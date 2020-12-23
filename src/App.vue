@@ -16,7 +16,13 @@
       <v-container fluid>
         <v-row>
           <ul>
-            <li v-for="(message, index) in messages.slice(0, next)" v-bind:key="index" :class="message.owner">{{message.text}}</li>
+            <li v-for="(message, index) in messages.slice(0, next)" v-bind:key="index" :class="message.owner">
+              
+              <vue-typed-js :strings="[message.text]">
+                <h1 v-if="message.owner=='him'" class="typing"></h1>
+                <h1 class="not-typing" v-else>{{message.text}}</h1>
+              </vue-typed-js>
+            </li>
           </ul>
         </v-row>
         <v-row :style="{position: 'absolute', bottom: 0, left: 0, right: 0, padding: '10px', zIndex: 100, background: '#ffffff'}">
@@ -44,12 +50,14 @@
 <script>
 
 import axios from 'axios';
+import {VueTypedJs} from 'vue-typed-js';
+
 
 export default {
   name: 'App',
 
   components: {
-
+    VueTypedJs
   },
 
   data: () => ({
@@ -140,6 +148,10 @@ export default {
     border-radius: 30px;
     margin-bottom: 2px;
     font-family: Helvetica, Arial, sans-serif;
+  }
+
+  .typing, .not-typing{
+    font-size: 14px;
   }
 
   .him{
