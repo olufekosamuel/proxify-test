@@ -18,7 +18,7 @@
           <ul>
             <li v-for="(message, index) in messages.slice(0, next)" v-bind:key="index" :class="message.owner">
               
-              <vue-typed-js :strings="[message.text]">
+              <vue-typed-js :fadeOut="true" :strings="[message.text]">
                 <h1 v-if="message.owner=='him'" class="typing"></h1>
                 <h1 class="not-typing" v-else>{{message.text}}</h1>
               </vue-typed-js>
@@ -73,9 +73,6 @@ export default {
     endChat: false,
     messages: [],
   }),
-  created(){
-      this.getMessage();
-  },
   mounted() {
     this.getMessage();
   },
@@ -92,8 +89,24 @@ export default {
               text: this.input,
               owner: 'me'
             })
+            this.storeResponse();
             this.input = "";
         }
+    },
+    storeResponse() {//function stores a user answer to previous specific question asked by bot and utilize the answer for its response
+      if (this.messages[this.next-1].ask === 'name') { //store user name
+        this.name = this.input
+        this.messages[this.next+1].text = this.messages[this.next+1].text +" "+this.name; //lets tell the bot the users name
+      }else if (this.messages[this.next-1].ask === 'location') { //store user location
+        this.location = this.input;
+        this.messages[this.next+1].text =  this.location +", "+ this.messages[this.next+1].text//lets tell the bot the users name
+      }else if (this.messages[this.next-1].ask === 'feeling'){ //store user feeling
+        this.feeling = this.input;
+      }else if (this.messages[this.next-1].ask === 'hobby'){ //store user hobby
+        this.hobby = this.input;
+      }else if (this.messages[this.next-1].ask === 'age'){ //store user age
+        this.age = parseInt(this.input);
+      }
     },
     send() {//function handles sending all messages
     
